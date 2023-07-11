@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <header id="header">
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <div class="container-fluid p-5 bg-dark text-white text-center">
+            <h1>Agenda de contactos</h1>
+            <p>Visualice y gestione sus contactos</p> 
+        </div>
+        <div id="app" class="container">
+            <br>
+            <a class="btn btn-success" href="templates/contacto_nuevo.html">Nuevo contacto</a>
+            <br><br>
+            <div v-if="error">
+                <p>Lo sentimos , ........</p>
+            </div>
+            <div v-else>
+                <section v-if="cargando">
+                    <div class="spinner-border"></div>
+                    <p>Cargando .....</p>
+                </section>
+                <section v-else>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <caption>Contactos</caption>
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Correo electrónico</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="" v-for="contacto in contactos">
+                                    <td scope="row">{{contacto.id_contacto}}</td>
+                                    <td>{{contacto.nombre}}</td>
+                                    <td>{{contacto.apellido}}</td>
+                                    <td>{{contacto.correo_electronico}}</td>
+                                    <td>{{contacto.telefono}}</td>
+                                    <td>{{contacto.direccion}}</td>
+                                    <!-- <td><img width="60" :src="producto.imagen" :alt="producto.nombre"></td> -->
+                                    <td>
+                                        <a class="btn btn-outline-primary"
+                                            :href="'templates/contacto_update.html?id='+ contacto.id_contacto">Editar</a>
+                                        <button type="button" class="btn btn-outline-danger"
+                                            v-on:click="eliminar(contacto.id_contacto)">Eliminar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <script>
+        <!--Link de Bootstrap-->
+        src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity = "sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin = "anonymous"</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+    <script src="../js/main.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
+    <script src="js/contactos.js"></script>
+</body>
+
+</html>

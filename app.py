@@ -48,7 +48,7 @@ ma = Marshmallow(app): Se crea un objeto ma de la clase Marshmallow, que se util
 # URI de la BD == Driver de la BD://user:password@UrlBD/nombreBD
 # app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:root@localhost/proyecto"
 # app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:contraseña@localhost/proyecto"
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://frobledo:urupdd8102@frobledo.mysql.pythonanywhere-services.com/frobledo$default'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://frobledo:contraseña@frobledo.mysql.pythonanywhere-services.com/frobledo$default'
 
 # Configura el seguimiento de modificaciones de SQLAlchemy a False para mejorar el rendimiento
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
